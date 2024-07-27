@@ -1509,6 +1509,7 @@ class BitcoinZ(EquihashMixin, Coin):
     REORG_LIMIT = 800
 
 
+
 class ZelCash(EquihashMixin, Coin):
     NAME = "ZelCash"
     SHORTNAME = "ZEL"
@@ -1685,6 +1686,29 @@ class Blackcoin(ScryptMixin, Coin):
         'electrum2.blackcoin.nl t20001 s20002',
         'electrum3.blackcoin.nl t30001 s30002'
     ]
+
+
+class Jumpcoin(ScryptMixin, Coin):
+    NAME = "Jumpcoin"
+    SHORTNAME = "JUMP"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488B21E")
+    XPRV_VERBYTES = bytes.fromhex("0488ADE4")
+    P2PKH_VERBYTE = bytes.fromhex("2B")
+    P2SH_VERBYTES = (bytes.fromhex("2C"),)
+    WIF_BYTE = bytes.fromhex("AB")
+    GENESIS_HASH = ('00000fa4edca746cef5d3e903ca8691f'
+                    '3fa9602e6055e351a53be2e109f9a4e3')
+    DESERIALIZER = lib_tx.DeserializerBlackcoin
+    DAEMON = daemon.FakeEstimateFeeDaemon
+    TX_COUNT = 10802426
+    TX_COUNT_HEIGHT = 3431329
+    TX_PER_BLOCK = 3
+    RPC_PORT = 31242
+    REORG_LIMIT = 500
+    ESTIMATE_FEE = 0.0001
+    RELAY_FEE = 0.0001
+
 
 
 class BlackcoinTestnet(Blackcoin):
