@@ -1,0 +1,25 @@
+services:
+  electrumx:
+    build: .
+    container_name: jumpcoin-electrumx
+    restart: unless-stopped
+    ports:
+      - "50001:50001"  # TCP
+      - "50002:50002"  # SSL
+    volumes:
+      - electrumx-data:/data
+      - ./ssl:/ssl:ro
+    environment:
+      - COIN=Jumpcoin
+      - NET=mainnet
+      - DAEMON_URL=http://YOUR_RPC_USER:YOUR_RPC_PASSWORD@host.docker.internal:31240
+      - DB_DIRECTORY=/data
+      - SERVICES=tcp://0.0.0.0:50001,ssl://0.0.0.0:50002
+      - SSL_CERTFILE=/ssl/cert.pem
+      - SSL_KEYFILE=/ssl/key.pem
+      - ALLOW_ROOT=true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  electrumx-data:

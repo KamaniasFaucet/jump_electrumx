@@ -1088,7 +1088,7 @@ class Viacoin(AuxPowMixin, Coin):
                     'eaabe35a70970d79971da1539a400ba1')
     TX_COUNT = 113638
     TX_COUNT_HEIGHT = 3473674
-    TX_PER_BLOCK = 30
+    TX_PER_BLOCK = 10
     RPC_PORT = 5222
     REORG_LIMIT = 5000
     DESERIALIZER = lib_tx.DeserializerAuxPowSegWit
@@ -1174,7 +1174,7 @@ class Unitus(Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 3484561
     TX_COUNT_HEIGHT = 1697605
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 50604
     REORG_LIMIT = 2000
     PEERS = [
@@ -1504,7 +1504,7 @@ class BitcoinZ(EquihashMixin, Coin):
     DESERIALIZER = lib_tx.DeserializerZcash
     TX_COUNT = 171976
     TX_COUNT_HEIGHT = 81323
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 1979
     REORG_LIMIT = 800
 
@@ -1521,7 +1521,7 @@ class ZelCash(EquihashMixin, Coin):
     DESERIALIZER = lib_tx.DeserializerZcash
     TX_COUNT = 450539
     TX_COUNT_HEIGHT = 167114
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 16124
     REORG_LIMIT = 800
 
@@ -1553,7 +1553,7 @@ class Koto(Coin):
     DESERIALIZER = lib_tx.DeserializerZcash
     TX_COUNT = 158914
     TX_COUNT_HEIGHT = 67574
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 8432
     REORG_LIMIT = 800
     PEERS = [
@@ -1674,13 +1674,19 @@ class Blackcoin(ScryptMixin, Coin):
                     'f2c183bf232f263d0ba5b101911e4563')
     DESERIALIZER = lib_tx.DeserializerBlackcoin
     DAEMON = daemon.FakeEstimateFeeDaemon
-    TX_COUNT = 10802426
-    TX_COUNT_HEIGHT = 3431329
-    TX_PER_BLOCK = 3
+    TX_COUNT = 822190
+    TX_COUNT_HEIGHT = 942293
+    TX_PER_BLOCK = 1
     RPC_PORT = 15715
     REORG_LIMIT = 500
     ESTIMATE_FEE = 0.0001
     RELAY_FEE = 0.0001
+
+    PEERS = [
+        'seed1.jumpcoin.net t31242 s31243',
+        'seed2.jumpcoin.net t31242 s31243',
+        'seed3.jumpcoin.net t31242 s31243',
+    ]
     PEERS = [
         'electrum1.blackcoin.nl t10001 s10002',
         'electrum2.blackcoin.nl t20001 s20002',
@@ -1695,19 +1701,25 @@ class Jumpcoin(ScryptMixin, Coin):
     XPUB_VERBYTES = bytes.fromhex("0488B21E")
     XPRV_VERBYTES = bytes.fromhex("0488ADE4")
     P2PKH_VERBYTE = bytes.fromhex("2B")
-    P2SH_VERBYTES = (bytes.fromhex("2C"),)
+    P2SH_VERBYTES = (bytes.fromhex("7A"),)
     WIF_BYTE = bytes.fromhex("AB")
     GENESIS_HASH = ('00000fa4edca746cef5d3e903ca8691f'
                     '3fa9602e6055e351a53be2e109f9a4e3')
     DESERIALIZER = lib_tx.DeserializerBlackcoin
     DAEMON = daemon.FakeEstimateFeeDaemon
-    TX_COUNT = 10802426
-    TX_COUNT_HEIGHT = 3431329
-    TX_PER_BLOCK = 3
-    RPC_PORT = 31242
+    TX_COUNT = 822190
+    TX_COUNT_HEIGHT = 942293
+    TX_PER_BLOCK = 1
+    RPC_PORT = 31240
     REORG_LIMIT = 500
     ESTIMATE_FEE = 0.0001
     RELAY_FEE = 0.0001
+
+    PEERS = [
+        'seed1.jumpcoin.net t31242 s31243',
+        'seed2.jumpcoin.net t31242 s31243',
+        'seed3.jumpcoin.net t31242 s31243',
+    ]
 
 
 
@@ -1749,7 +1761,7 @@ class Bitbay(ScryptMixin, Coin):
                     '354e79954d2a32a6f77fe9cba00e6467')
     TX_COUNT = 4594999
     TX_COUNT_HEIGHT = 1667070
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 19914
     REORG_LIMIT = 5000
 
@@ -1881,7 +1893,7 @@ class Reddcoin(Coin):
     DESERIALIZER = lib_tx.DeserializerReddcoin
     TX_COUNT = 5413508
     TX_COUNT_HEIGHT = 1717382
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 45443
 
 
@@ -1922,7 +1934,7 @@ class Vertcoin(Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 2383423
     TX_COUNT_HEIGHT = 759076
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 5888
     REORG_LIMIT = 1000
     PEERS = [
@@ -2102,6 +2114,12 @@ class CanadaeCoin(AuxPowMixin, Coin):
                     'cabdae9e0028058072181b3fb675d94a')
     ESTIMATE_FEE = 0.0001
     RELAY_FEE = 0.0001
+
+    PEERS = [
+        'seed1.jumpcoin.net t31242 s31243',
+        'seed2.jumpcoin.net t31242 s31243',
+        'seed3.jumpcoin.net t31242 s31243',
+    ]
     DAEMON = daemon.FakeEstimateFeeDaemon
     TX_COUNT = 3455905
     TX_COUNT_HEIGHT = 3645419
@@ -3100,7 +3118,7 @@ class NIX(Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 114240
     TX_COUNT_HEIGHT = 87846
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 6215
     REORG_LIMIT = 1000
 
@@ -3248,7 +3266,7 @@ class Ritocoin(Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 1188090
     TX_COUNT_HEIGHT = 296030
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     RPC_PORT = 8766
     REORG_LIMIT = 55
     PEERS = [
@@ -3412,7 +3430,7 @@ class Electra(Coin):
     RPC_PORT = 5788
     TX_COUNT = 615729
     TX_COUNT_HEIGHT = 205243
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     REORG_LIMIT = 100
     DESERIALIZER = lib_tx.DeserializerElectra
 
@@ -3664,7 +3682,7 @@ class Myce(Coin):
     RPC_PORT = 23512
     TX_COUNT = 1568977
     TX_COUNT_HEIGHT = 774450
-    TX_PER_BLOCK = 3
+    TX_PER_BLOCK = 1
     REORG_LIMIT = 100
     DESERIALIZER = lib_tx.DeserializerSimplicity
 
